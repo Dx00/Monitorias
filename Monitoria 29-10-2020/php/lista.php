@@ -40,9 +40,9 @@
                             <?php echo $row['preco']; ?>
                         </td>
                         <td>
-                            <a href="#">Editar</a>|
-                            <a href="#">Detalhe</a>|
-                            <a href="./actions/deletar_produtos.php?deletar=<?php echo $row['id']; ?>" >Deletar</a>
+                            <a class="btn btn-sm btn-primary" href="./atualizar.php?atualizar=<?php echo $row['id']; ?>">Editar</a>|
+                            <a class="btn btn-sm btn-success" href="./detalhe.php?visualizar=<?php echo $row['id']; ?>">Detalhe</a>|
+                            <a class="btn btn-sm btn-danger" href="./actions/deletar_produtos.php?deletar=<?php echo $row['id']; ?>" >Deletar</a>
                         </td>
                     </tr>
 <?php

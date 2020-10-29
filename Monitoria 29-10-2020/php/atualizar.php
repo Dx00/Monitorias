@@ -1,33 +1,40 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    require_once "./actions/db_connect.php";
 
-    <title>Página Inicial.</title>
-</head>
-<body>
+    include_once "./includes/cabecalho.php";
+
+    if(isset($_GET['atualizar'])){
+        $id = $_GET['atualizar'];
+        $sql = "SELECT * FROM produtos WHERE id = $id LIMIT 1";
+        $resultado = mysqli_query($connect, $sql);
+        while($row=mysqli_fetch_assoc($resultado)){
+?>
     <div class="container-fluid">
         <div class="row">
-            <form method="POST" action="./php/actions/cadastrar_produtos.php" class="col-md-4 mx-auto">
+            <form method="POST" action="./actions/atualizar_produtos.php?id=<?php echo $row['id'] ?>" class="col-md-4 mx-auto">
                 <h4> Atualização de Produtos. </h4>
                 <div class="form-group">
                     <label for="nome">Nome: </label>
-                    <input type="text" class="form-control" id="nome" name="nome">
+                    <input value="<?php echo $row['nome'] ?>" type="text" class="form-control" id="nome" name="nome">
                 </div>
                 <div class="form-group">
                     <label for="preco">Preço: </label>
-                    <input type="text" class="form-control" id="preco" name="preco">
+                    <input value="<?php echo $row['preco'] ?>" type="text" class="form-control" id="preco" name="preco">
                 </div>
                 <div class="form-group">
                     <label for="descricao">Descrição: </label>
-                    <textarea class="form-control" id="descricao" name="descricao"></textarea>
+                    <textarea class="form-control" id="descricao" name="descricao"><?php echo $row['descricao'] ?></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" name="cadastrar">Submit</button>
+                <button type="submit" class="btn btn-primary" name="atualizar">Submit</button>
             </form>
         </div>
     </div>
 </body>
 </html>
+<?php
+        }
+    }
+
+    include_once "./includes/rodape.php";
+?>

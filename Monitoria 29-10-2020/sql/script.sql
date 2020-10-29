@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS ecommerce;
+
+USE ecommerce;
+
+CREATE TABLE IF NOT EXISTS produtos (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100).
+    descricao VARCHAR(500),
+    preco VARCHAR(10)
+);
