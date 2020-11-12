@@ -3,7 +3,7 @@ import React from 'react';
 class Categorias extends React.Component {
     render() {
         return (
-            <div className="col-lg-3 col-md-2 d-sm-inline">
+            <div className="col-lg-3 col-md-3 d-sm-inline">
                 <ul className="border">
                     <li className="mb-1 mt-1 text-left">
                         <a className="text-white" href="/">Categoria 1</a>

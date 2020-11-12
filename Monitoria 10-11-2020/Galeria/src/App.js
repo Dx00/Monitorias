@@ -11,8 +11,8 @@ function App() {
       </header>
       <main className="container">
         <div className="row mt-4">
-          <Categorias />
           <Galeria />
+          <Categorias />
         </div>
       </main>
     </div>
